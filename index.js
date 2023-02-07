@@ -6,7 +6,15 @@ const port = 3000;
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+
+  switch (req.url) {
+    case "/signup":
+        res.end("signup");
+        break;
+    default:
+        res.end("default");
+        
+  }
 });
 
 server.listen(port, hostname, () => {
